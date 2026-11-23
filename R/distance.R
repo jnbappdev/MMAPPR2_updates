@@ -240,7 +240,15 @@ calculateDistance <- function(mmapprData) {
   stopifnot(fileAggregation %in% c("simple", "weighted"))
   stopifnot(nFiles >= 1L)
   data.table::setkey(chrDf, CHROM, POS)
-
+  
+  if (nFiles == 1L && !anyDuplicated(chrDf, by = c("CHROM", "POS"))) {     # with a safegaurd for more than 1 file, this skips redundant bamfile copying when necessary
+    out <-chrDf[, .(CHROM, POS, AVE.CVG = as.numeric(CVG),
+                    AVE.A.FREQ = A.FREQ, AVE.C.FREQ = C.FREQ,
+                    AVE.G.FREQ = G.FREQ, AVE.T.FREQ = T.FREQ)]
+    data.table::setkey(out, CHROM, POS)
+    return(out)
+  }
+  
   if (fileAggregation == "weighted") {
     # Count-weighted allele frequencies are equivalent to pooling the reads.
     chrDf <- chrDf[, .(
