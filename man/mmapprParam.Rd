@@ -16,7 +16,7 @@ mmapprParam(
   minMapQuality = 20,
   fileAggregation = c("simple", "weighted"),
   distancePower = 4,
-  peakIntervalWidth = 0.8,
+  peakIntervalWidth = 0.95,
   loessOptResolution = 0.001,
   loessOptCutFactor = 0.1,
   maxPileupDepth = 1000,
