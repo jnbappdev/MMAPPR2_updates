@@ -1129,7 +1129,8 @@ generateCandidates <- function(md) {
       densityFunc <- peaks[[seqname]]$densityFunction
       positions <- BiocGenerics::start(group[[seqname]]) +
         ((BiocGenerics::width(group[[seqname]]) - 1) / 2)
-      densityCol <- vapply(positions, densityFunc, FUN.VALUE = numeric(1))
+      densityCol <- as.numeric(densityFunc(positions))
+      stopifnot(length(densityCol) == length(positions))
       S4Vectors::mcols(candList[[groupName]][[seqname]])$peakDensity <- densityCol
       candList[[groupName]][[seqname]] <- .orderVariants(candList[[groupName]][[seqname]])
     }
