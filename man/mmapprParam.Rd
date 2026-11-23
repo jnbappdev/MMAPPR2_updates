@@ -52,7 +52,7 @@ mmapprParam(
 \item{minMapQuality}{Minimum read mapping quality used in pileups. Default 20.}
 \item{fileAggregation}{\code{"simple"} gives equal weight to replicate allele-frequency estimates; \code{"weighted"} pools allele evidence by read depth.}
 \item{distancePower}{Power applied to Euclidean distance before LOESS. Default 4.}
-\item{peakIntervalWidth}{Target fraction of the resampling-density mass retained during peak refinement. Default 0.80. Interpretation depends on \code{peakIntervalMethod}.}
+\item{peakIntervalWidth}{Target fraction of the resampling-density mass retained during peak refinement. Default 0.95. Interpretation depends on \code{peakIntervalMethod}.}
 \item{loessOptResolution}{Target resolution of LOESS-span optimization. Default 0.001.}
 \item{loessOptCutFactor}{Coarse-to-fine LOESS optimization refinement factor. Default 0.1.}
 \item{maxPileupDepth}{Maximum reads considered per BAM at one linkage-stage pileup position. Default 1000; final candidate pileup retains the historical 250-read cap.}
