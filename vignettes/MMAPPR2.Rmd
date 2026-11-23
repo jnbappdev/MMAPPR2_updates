@@ -69,7 +69,7 @@ param <- mmapprParam(
   peakCutoffSd = 3,
   # Default: use the compatibility cutoff; "global_sd" selects the genome-wide-SD alternative.
   peakCutoffMethod = "legacy_current",
-  peakIntervalWidth = 0.80,
+  peakIntervalWidth = .95,
   # Conservative default: span all selected high-density modes.
   peakIntervalMethod = "hpd_span",
   peakResampleIterations = 1000,
