@@ -50,7 +50,7 @@
 #'   variation in the data. Default of 4.
 #' @slot peakIntervalWidth Length-one numeric vector between \code{0} and
 #'   \code{1} specifying desired width of linkage region(s). The default value
-#'   of \code{0.80} targets 80\% of the resampling-density mass. The exact
+#'   of \code{0.95} targets 95\% of the resampling-density mass. The exact
 #'   interval construction is controlled by \code{peakIntervalMethod}; the default
 #'   \code{hpd_span} conservatively spans all selected high-density modes.
 #' @slot loessOptResolution Length-one numeric vector between \code{0} and
@@ -190,7 +190,7 @@ setClass("MmapprParam",
 #'   variation in the data. Default of 4.
 #' @param peakIntervalWidth Length-one numeric vector between \code{0} and
 #'   \code{1} specifying desired width of linkage region(s). The default value
-#'   of \code{0.80} targets 80\% of the resampling-density mass. The exact
+#'   of \code{0.95} targets 80\% of the resampling-density mass. The exact
 #'   interval construction is controlled by \code{peakIntervalMethod}; the default
 #'   \code{hpd_span} conservatively spans all selected high-density modes.
 #' @param loessOptResolution Length-one numeric vector between \code{0} and
@@ -260,7 +260,7 @@ mmapprParam <- function(wtFiles,
                         minMapQuality = 20,
                         fileAggregation = c('simple', 'weighted'),
                         distancePower = 4,
-                        peakIntervalWidth = 0.80,
+                        peakIntervalWidth = 0.95,
                         loessOptResolution = 0.001,
                         loessOptCutFactor = 0.1,
                         maxPileupDepth = 1000,
